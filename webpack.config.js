@@ -18,10 +18,18 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.js$/,
         exclude: /node_modules/,
-        use: ['babel-loader']
-      }
+        loader: 'babel-loader',
+      },
+      {
+        test: /\.(css|scss)$/,
+        loader: 'style-loader!css-loader!sass-loader',
+      },
+      {
+        test: /\.(svg)$/,
+        loader: 'raw-loader',
+      },
     ]
   },
 };
