@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware } from 'redux';
 import thunk from '../lib/thunk.js';
 
-let colorReducer = (state=null, action) => {
+let colorReducer = (state=[], action) => {
   let { type, payload } = action;
 
   switch(type) {

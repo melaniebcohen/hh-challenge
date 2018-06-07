@@ -23,7 +23,7 @@ mongoose.connect(process.env.MONGODB_URI)
   })
   .catch(err => console.log(err));
 
-  app.use(cors());
+app.use(cors());
 app.use(colorRouter);
 app.use(express.static('dist'));
 

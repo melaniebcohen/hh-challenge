@@ -10,25 +10,39 @@ class ListView extends Component {
     this.state = {
       currentColor: '#cffff1',
       index: 0,
+      colors: [],
     }
   }
 
   componentWillMount() {
     return this.props.colorFetch(this.state.index)
-      .then(res => console.log(res.body));
+    .then(res => {
+      this.setState({
+        colors: this.props.colors,
+      })
+    })
   }
 
   render() {
     return (
       <section className='list-view'>
-        <ListItem color={this.state.currentColor} />
+        {this.state.colors.length > 0
+          ? this.state.colors.map(color => {
+            return <ListItem key={color._id} color={color} />
+          })
+          : null
+        }
       </section>
     );
   }
 }
 
+let mapStateToProps = (state) => ({
+  colors: state.colors,
+});
+
 let mapDispatchToProps = (dispatch) => ({
   colorFetch: (index) => dispatch(colorFetchRequest(index)),
 });
 
-export default connect(null, mapDispatchToProps)(ListView);
+export default connect(mapStateToProps, mapDispatchToProps)(ListView);
