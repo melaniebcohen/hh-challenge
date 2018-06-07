@@ -1,13 +1,16 @@
 .sidebar {
   background-color: $secondary-color;
   box-shadow: $blur-horizontal;
-  width: 200px;
+  width: 150px;
   height: 100vh;
+  float: left;
 
   button {
     border-radius: $border-radius;
+    font-family: $font;
+    font-weight: bold;
     background-color: #FFF;
-    border: 1px #999 solid;
+    border: 1px $primary-color solid;
     padding: 8px 25px;
     transition: .4s
   }
@@ -15,5 +18,9 @@
   button:hover {
     background: rgb(235, 235, 235);
     border: 1px #000 solid;
+  }
+
+  li {
+    color: $primary-color;
   }
 }

@@ -1,5 +1,4 @@
-/* source-serif-pro-regular - latin */
-/* https://google-webfonts-helper.herokuapp.com/ */
+/* Used Google font import helper: https://google-webfonts-helper.herokuapp.com/ */
 @font-face {
   font-family: 'Source Serif Pro';
   font-style: normal;
@@ -18,3 +17,5 @@
 
 @import './module/navbar';
 @import './module/sidebar';
+@import './module/list-view';
+@import './module/list-item';
