@@ -1,0 +1,19 @@
+.sidebar {
+  background-color: $secondary-color;
+  box-shadow: $blur-horizontal;
+  width: 200px;
+  height: 100vh;
+
+  button {
+    border-radius: $border-radius;
+    background-color: #FFF;
+    border: 1px #999 solid;
+    padding: 8px 25px;
+    transition: .4s
+  }
+
+  button:hover {
+    background: rgb(235, 235, 235);
+    border: 1px #000 solid;
+  }
+}
