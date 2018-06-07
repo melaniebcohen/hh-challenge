@@ -10,3 +10,7 @@
     height: 100px;
   }
 }
+
+.list-item:hover {
+  cursor: $cursor;
+}
