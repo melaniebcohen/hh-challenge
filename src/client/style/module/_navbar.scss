@@ -1,0 +1,34 @@
+.nav {
+  background-color: $primary-color;
+  box-shadow: $blur-vertical;
+  height: 50px;
+
+  .nav-icon {
+    width: 20%;
+    float: left;
+    
+    svg {
+      height: 40px;
+      width: 40px;
+      margin: 5px 0 0 10px;
+    }
+
+    svg:hover {
+      cursor: $cursor;
+    }
+  }
+
+  .nav-search {
+    width: 70%;
+    float: right;
+
+    input {
+      border-radius: $border-radius;
+      border: none;
+      padding: 8px;
+      margin: 10px 20px 0 0;
+      float: right;
+      font-family: $font;
+    }
+  }
+}

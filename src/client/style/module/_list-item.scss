@@ -1,0 +1,16 @@
+.list-item {
+  border: 1px $secondary-color solid;
+  border-radius: $border-radius;
+  margin: $gutter-lg;
+  box-shadow: $blur;
+  width: 115px;
+  height: 130px;
+
+  .list-item-color {
+    height: 100px;
+  }
+}
+
+.list-item:hover {
+  cursor: $cursor;
+}

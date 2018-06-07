@@ -1,27 +1,52 @@
 'use strict';
 
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+
 module.exports = {
-  entry: [
-    './src/index.js'
-  ],
-  resolve: {
-    extensions: ['*', '.js', '.jsx']
-  },
+  entry: './src/client/index.js',
+  // resolve: {
+  //   extensions: ['*', '.js', '.jsx']
+  // },
   output: {
-    path: __dirname + '/dist',
-    publicPath: '/',
+    path: `${__dirname}/dist`,
+    // publicPath: '/',
     filename: 'bundle.js'
   },
   devServer: {
-    contentBase: './dist'
+    port: 3000,
+    open: true,
+    // contentBase: './dist'
+    proxy: {
+      '/api': 'http://localhost:8080'
+    }
   },
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.js$/,
         exclude: /node_modules/,
-        use: ['babel-loader']
-      }
+        loader: 'babel-loader',
+      },
+      {
+        test: /\.(css|scss)$/,
+        loader: 'style-loader!css-loader!sass-loader',
+      },
+      {
+        test: /\.(svg)$/,
+        loader: 'raw-loader',
+      },
+      {
+        test: /\.(woff|woff2|ttf|eot).*/,
+        exclude: /\.svg/,
+        loader: 'url-loader',
+      },
     ]
   },
+  plugins: [
+    new CleanWebpackPlugin(['dist']),
+    new HtmlWebpackPlugin({
+      template: './public/index.html',
+    })
+  ]
 };
