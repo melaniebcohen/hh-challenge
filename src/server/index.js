@@ -3,10 +3,12 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const app = express();
 
 const Color = require('./model/color.js');
 const colors = require('./data/colorData.js');
+const colorRouter = require('./routes/color-router.js');
 
 const PORT = process.env.PORT || 3000;
 mongoose.connect(process.env.MONGODB_URI)
@@ -21,9 +23,10 @@ mongoose.connect(process.env.MONGODB_URI)
   })
   .catch(err => console.log(err));
 
-// const colorRouter = require('./routes/color-router.js');
-// app.use(colorRouter);
+  app.use(cors());
+app.use(colorRouter);
+app.use(express.static('dist'));
 
 app.listen(PORT, () => {
-  console.log(`server up: ${PORT}`);
+  console.log(`server up at ${PORT}`);
 });
