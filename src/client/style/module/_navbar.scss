@@ -1,7 +1,11 @@
 .nav {
   background-color: $primary-color;
   box-shadow: $blur-vertical;
+  position: fixed;
+  z-index: 50;
+  top: 0;
   height: 50px;
+  width: 100%;
 
   .nav-icon {
     width: 20%;

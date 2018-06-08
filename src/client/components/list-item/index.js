@@ -1,15 +1,25 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
-export default class ListItem extends Component {
+class ListItem extends Component {
   render() {
+    let hexCode = `#${this.props.color.hexCode}`
+    
     return (
-      <div className='list-item'>
+      <div 
+        className='list-item'
+        onClick={() => this.props.history.push(`/detail/${this.props.color.hexCode}`)}>
         <div 
           className='list-item-color'
-          style={{ backgroundColor: this.props.color }}>
+          style={{ backgroundColor: hexCode }}>
         </div>
-        <p>{this.props.color}</p>
+        <p>{this.props.color.colorName}</p>
+        <p>{hexCode}</p>
       </div>
     );
   }
 }
+
+export default withRouter(ListItem);

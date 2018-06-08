@@ -1,27 +1,38 @@
 'use strict';
 
-const Router = require('express').Router;
+const Router = require('express').Router();
 const Color = require('../model/color');
 
-Router.get('/', (req, res) => {
-  let skip = req.query.skip || 0;
-  let limit = req.query.limit || 10;
-
-  skip = parseInt(skip);
-  limit = parseInt(limit);
-
+// GET ALL COLORS - will have pagination
+Router.get('/api/colors', (req, res) => {
   Color.find({})
-    .skip(skip)
-    .limit(limit)
-    .then(movies => {
-      Color.count()
-        .then(total => {
-          res.send({
-            movies: movies,
-            total: total,
-          });
-        });
-    });
+    .then(colors => {
+      res.send({ colors })
+    })
+});
+
+// GET SINGLE COLOR
+Router.get(`/api/color/:hexCode`, (req, res) => {
+  Color.find({ hexCode: req.params.hexCode })
+    .then(color => {
+      res.send({ color })
+    })
+})
+
+// GET COLORS WITHIN 1 FAMILY
+
+// GET RANDOM COLOR
+Router.get('/api/random', (req, res) => {
+  Color.count().exec()
+    .then(count => {
+      return Math.floor(Math.random() * count + 1)
+    })
+    .then(random => {
+      return Color.findOne().skip(random)
+    })
+    .then(color => {
+      res.send({ color })
+    })
 });
 
 module.exports = Router;

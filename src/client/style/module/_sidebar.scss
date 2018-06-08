@@ -1,9 +1,12 @@
 .sidebar {
   background-color: $secondary-color;
   box-shadow: $blur-horizontal;
+  position: fixed;
+  z-index: 1;
+  top: 50px;
+  left: 0;
   width: 150px;
   height: 100vh;
-  float: left;
 
   button {
     border-radius: $border-radius;
