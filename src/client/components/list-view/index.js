@@ -24,9 +24,10 @@ class ListView extends Component {
   }
 
   render() {
+    console.log(this.state.colors)
     return (
       <section className='list-view'>
-        {this.state.colors.length > 0
+        {this.state.colors
           ? this.state.colors.map(color => {
             return <ListItem key={color._id} color={color} />
           })
