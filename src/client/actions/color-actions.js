@@ -15,8 +15,9 @@ export const randomFetch = (color) => ({
   payload: color,
 });
 
-export const allColorsFetchRequest = (index) => (dispatch, getState) => {
-  return superagent.get(`http://localhost:3000/api/colors`)
+export const allColorsFetchRequest = (page) => (dispatch, getState) => {
+  console.log(page)
+  return superagent.get(`http://localhost:3000/api/colors?page=${page}`)
     .set('Access-Control-Allow-Origin', '*')
     .then(res => {
       dispatch(allColorsFetch(res.body));

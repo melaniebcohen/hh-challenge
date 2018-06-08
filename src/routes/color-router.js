@@ -5,7 +5,11 @@ const Color = require('../model/color');
 
 // GET ALL COLORS - will have pagination
 Router.get('/api/colors', (req, res) => {
+  let page = parseInt(req.query.page - 1) || 0;
+    
   Color.find({})
+    .skip(parseInt(page)*12)
+    .limit(12)
     .then(colors => {
       res.send({ colors })
     })
@@ -25,7 +29,7 @@ Router.get(`/api/color/:hexCode`, (req, res) => {
 Router.get('/api/random', (req, res) => {
   Color.count().exec()
     .then(count => {
-      return Math.floor(Math.random() * count + 1)
+      return Math.floor(Math.random() * count)
     })
     .then(random => {
       return Color.findOne().skip(random)
