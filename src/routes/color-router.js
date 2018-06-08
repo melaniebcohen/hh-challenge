@@ -17,13 +17,21 @@ Router.get('/api/colors', (req, res) => {
 
 // GET SINGLE COLOR
 Router.get(`/api/color/:hexCode`, (req, res) => {
-  Color.find({ hexCode: req.params.hexCode })
+  Color.findOne({ hexCode: req.params.hexCode })
     .then(color => {
       res.send({ color })
     })
 })
 
 // GET COLORS WITHIN 1 FAMILY
+Router.get('/api/colors/:family', (req, res) => {
+  console.log(req.params.family)
+  Color.find({ colorFamily: req.params.family })
+    .then(colors => {
+      console.log(colors)
+      res.send({ colors })
+    })
+});
 
 // GET RANDOM COLOR
 Router.get('/api/random', (req, res) => {

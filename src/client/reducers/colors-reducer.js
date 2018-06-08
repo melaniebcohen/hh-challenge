@@ -9,6 +9,9 @@ let colorReducer = (state=[], action) => {
     return payload;
   case 'COLOR_FETCH': 
     return payload;
+  case 'FAMILY_FETCH':
+    console.log(payload)
+    return payload;
   case 'RANDOM_FETCH':
     return payload;
   default:

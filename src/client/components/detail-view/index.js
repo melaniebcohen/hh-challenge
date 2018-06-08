@@ -8,13 +8,15 @@ import ListItem from '../list-item';
 class DetailView extends Component {
   componentWillMount() {
     return this.props.colorFetch(this.props.match.params.hex)
+    .then(() => console.log(this.props))
   }
 
   render() {
+    console.log(this.props)
     return (
       <section className='detail-view'>
         {this.props.color
-        ? <DetailItem color={this.props.color[0]} />
+        ? <DetailItem color={this.props.color} />
         : null
         }
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { allColorsFetchRequest } from '../../actions/color-actions.js';
+import { allColorsFetchRequest, colorFamilyFetchRequest } from '../../actions/color-actions.js';
 
 import ListItem from '../list-item';
 
@@ -15,13 +15,26 @@ class ListView extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
+    this.props.location.state = null;
     return this.props.allColorsFetch(this.state.page)
-    .then(res => {
-      this.setState({
-        colors: this.props.colors,
+      .then(res => {
+        this.setState({
+          currentColors: this.props.colors,
+        })
       })
-    })
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.location.state !== nextProps.location.state) {
+      return this.props.colorFamilyFetch(nextProps.location.state)
+        .then(res => {
+          this.setState({
+            currentColors: res.body.colors,
+            totalColorCount: res.body.colors.length,
+          })
+      })
+    }
   }
 
   handleClick(e) {
@@ -30,11 +43,10 @@ class ListView extends Component {
     return this.props.allColorsFetch(page)
     .then(res => {
       this.setState({
-        colors: this.props.colors,
+        currentColors: res.body.colors,
         page: page,
       })
     })
-
   }
 
   render() {
@@ -48,8 +60,8 @@ class ListView extends Component {
 
     return (
       <section className='list-view'>
-        {this.state.colors
-          ? this.state.colors.map(color => {
+        {this.state.currentColors
+          ? this.state.currentColors.map(color => {
             return <ListItem 
               key={color._id} 
               color={color} />
@@ -76,6 +88,7 @@ let mapStateToProps = (state) => ({
 
 let mapDispatchToProps = (dispatch) => ({
   allColorsFetch: (page) => dispatch(allColorsFetchRequest(page)),
+  colorFamilyFetch: (family) => dispatch(colorFamilyFetchRequest(family)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ListView);
