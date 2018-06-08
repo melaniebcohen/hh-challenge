@@ -1,16 +1,28 @@
 .list-item {
   border: 1px $secondary-color solid;
   border-radius: $border-radius;
-  margin: $gutter-lg;
+  margin: $gutter-lg/2;
   box-shadow: $blur;
   width: 115px;
   height: 130px;
+  display: inline-block;
 
   .list-item-color {
     height: 100px;
+    border-radius: $border-radius $border-radius 0 0;
+  }
+
+  p {
+    font-size: 12px;
+    margin: 3px 0 0 4px;
+  }
+  
+  p:last-child {
+    margin: 0 0 0 4px;
   }
 }
 
 .list-item:hover {
   cursor: $cursor;
+  box-shadow: 2px 2px 3px rgba(0,0,0, .2);
 }

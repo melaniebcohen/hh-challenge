@@ -11,6 +11,14 @@ Router.get('/api/colors', (req, res) => {
     })
 });
 
+// GET SINGLE COLOR
+Router.get(`/api/color/:hexCode`, (req, res) => {
+  Color.find({ hexCode: req.params.hexCode })
+    .then(color => {
+      res.send({ color })
+    })
+})
+
 // GET COLORS WITHIN 1 FAMILY
 
 // GET RANDOM COLOR

@@ -1,8 +1,13 @@
 import superagent from 'superagent';
 
-export const colorFetch = (colors) => ({
-  type: 'COLOR_FETCH',
+export const allColorsFetch = (colors) => ({
+  type: 'ALL_COLORS_FETCH',
   payload: colors,
+});
+
+export const colorFetch = (color) => ({
+  type: 'COLOR_FETCH',
+  payload: color,
 });
 
 export const randomFetch = (color) => ({
@@ -10,8 +15,17 @@ export const randomFetch = (color) => ({
   payload: color,
 });
 
-export const colorFetchRequest = (index) => (dispatch, getState) => {
+export const allColorsFetchRequest = (index) => (dispatch, getState) => {
   return superagent.get(`http://localhost:3000/api/colors`)
+    .set('Access-Control-Allow-Origin', '*')
+    .then(res => {
+      dispatch(allColorsFetch(res.body));
+      return res;
+    });
+};
+
+export const colorFetchRequest = (hex) => (dispatch, getState) => {
+  return superagent.get(`http://localhost:3000/api/color/${hex}`)
     .set('Access-Control-Allow-Origin', '*')
     .then(res => {
       dispatch(colorFetch(res.body));

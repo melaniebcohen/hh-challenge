@@ -10,8 +10,8 @@ module.exports = {
   // },
   output: {
     path: `${__dirname}/dist`,
-    // publicPath: '/',
-    filename: 'bundle.js'
+    publicPath: '/',
+    filename: 'bundle.js',
   },
   devServer: {
     port: 8080,
@@ -19,7 +19,8 @@ module.exports = {
     // contentBase: './dist'
     proxy: {
       '/api': 'http://localhost:3000'
-    }
+    },
+    historyApiFallback: true,
   },
   module: {
     rules: [
