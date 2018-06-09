@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { randomFetchRequest } from '../../actions/color-actions.js';
 
@@ -21,10 +20,17 @@ class SideBar extends Component {
   }
   
   handleClick(color) {
-    return this.props.history.push({
-      pathname: `/`,
-      state: color,
-    });
+    if (color) {
+      return this.props.history.push({
+        pathname: `/`,
+        state: color,
+      });
+    } else {
+      return this.props.history.push({
+        pathname: `/`,
+        state: '',
+      });
+    }
   }
 
   render() {
@@ -32,7 +38,9 @@ class SideBar extends Component {
       <section className='sidebar'>
         <button onClick={this.buttonSelect}>Random Color</button>
         <ul>
-          {this.state.colorList.map(color => {
+          <li onClick={() => this.handleClick()}>All Colors</li>
+
+          {this.state.colorList.map((color) => {
             return <li 
               value={color}
               key={color}

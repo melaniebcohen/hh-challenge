@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { colorFetchRequest } from '../../actions/color-actions.js';
 
 import DetailItem from '../detail-item';
-import ListItem from '../list-item';
 import DetailListItem from '../detail-list-item';
 
 class DetailView extends Component {
