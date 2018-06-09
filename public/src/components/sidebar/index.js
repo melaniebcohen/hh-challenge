@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { randomFetchRequest, colorFamilyFetchRequest } from '../../actions/color-actions.js';
+import { randomFetchRequest } from '../../actions/color-actions.js';
 
 class SideBar extends Component {
   constructor (props) {
@@ -50,7 +50,6 @@ let mapStateToProps = (state) => ({
 
 let mapDispatchToProps = (dispatch) => ({
   randomFetch: () => dispatch(randomFetchRequest()),
-  colorFamilyFetch: (family) => dispatch(colorFamilyFetchRequest(family)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SideBar);

@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 
 export default class DetailItem extends Component {
   render() {
-    let hexCode = `#${this.props.color.hexCode}`;
+    let { color } = this.props;
+    let hexCode = `#${color.hexCode}`;
 
     return (
       <section className='detail-item'>
@@ -11,7 +12,7 @@ export default class DetailItem extends Component {
             className='list-item-color'
             style={{ backgroundColor: hexCode }}>
           </div>
-          <p>{this.props.color.colorName}</p>
+          <p>{color.colorName}</p>
           <p>{hexCode}</p>
         </div>
       </section>

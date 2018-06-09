@@ -81,8 +81,8 @@ class ListView extends Component {
       <section className='list-view'>
         <div className='col-1'></div>
         <div className='col-2'>
-          {this.state.currentColors
-            ? this.state.currentColors.map(color => {
+          {currentColors
+            ? currentColors.map(color => {
               return <ListItem 
                 key={color._id} 
                 color={color} />;

@@ -7,9 +7,9 @@ const path = require('path');
 const cors = require('cors');
 const app = express();
 
-const Color = require('./src/model/color.js');
-const colors = require('./src/data/colorData.js');
-const colorRouter = require('./src/routes/color-router.js');
+const Color = require('./model/color.js');
+const colors = require('./data/colorData.js');
+const colorRouter = require('./routes/color-router.js');
 
 const PORT = process.env.PORT || 3000;
 mongoose.connect(process.env.MONGODB_URI)
