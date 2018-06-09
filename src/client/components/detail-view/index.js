@@ -13,7 +13,7 @@ class DetailView extends Component {
   }
 
   componentWillMount() {
-    return this.props.colorFetch(this.props.match.params.hex)
+    return this.props.colorFetch(this.props.match.params.hex);
   }
 
   createList() {
@@ -21,7 +21,6 @@ class DetailView extends Component {
     
     for (let i = 1; i < 6; i++) {
       let itemId = `detail-item-${i}`;
-      console.log(itemId)
 
       detailListItems.push(
         <DetailListItem 
@@ -29,7 +28,7 @@ class DetailView extends Component {
           id={itemId}
           key={i} 
         />
-      )
+      );
     }
 
     return detailListItems;
@@ -38,15 +37,19 @@ class DetailView extends Component {
   render() {
     return (
       <section className='detail-view'>
+        <div className='col-1'></div>
+
         {this.props.color
-        ? <Fragment>
+          ? <div className='col-2'>
             <DetailItem color={this.props.color} />
             {this.createList()}
-          </Fragment>
-        : null
+            <button onClick={() => this.props.history.push('/')}>Clear</button>
+          </div>
+          : null
         }
 
-        <button onClick={() => this.props.history.push('/')}>Clear</button>
+        <div className='col-3'></div>
+
       </section>
     );
   }

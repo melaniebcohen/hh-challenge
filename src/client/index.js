@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
-import colorStore from './reducers/colors-reducer.js'
+import colorStore from './reducers/colors-reducer.js';
 
 import App from './components/app';
 import './style/main.scss';
@@ -22,7 +22,7 @@ class Root extends Component {
           <App />
         </Provider>
       </main>
-    )
+    );
   }
 }
 

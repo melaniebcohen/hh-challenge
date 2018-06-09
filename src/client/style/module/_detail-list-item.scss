@@ -6,9 +6,11 @@
   display: inline-block;
   width: 175px;
   height: 190px;
+  text-align: left;
 
   .detail-list-color {
-    height: 75%;
+    height: 70%;
+    margin-bottom: 12px;
     border-radius: $border-radius $border-radius 0 0;
   }
   
@@ -40,11 +42,11 @@
 
   p {
     font-size: 12px;
-    margin: 3px 0 0 4px;
+    margin: 3px 0 0 10%;
   }
   
   p:last-child {
-    margin: 0 0 0 4px;
+    margin: 0 0 0 10%;
   }
 
   @media only screen and (min-width: 550px) {

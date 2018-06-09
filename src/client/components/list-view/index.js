@@ -13,7 +13,7 @@ class ListView extends Component {
       totalColorCount: 0,
       familyView: false,
       pageSelected: false,
-    }
+    };
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -26,8 +26,8 @@ class ListView extends Component {
           currentColors: res.body.colors,
           totalColorCount: res.body.total,
           familyView: false,
-        })
-      })
+        });
+      });
   }
 
   componentWillReceiveProps(nextProps) {
@@ -38,8 +38,8 @@ class ListView extends Component {
             currentColors: res.body.colors,
             totalColorCount: res.body.total,
             familyView: true,
-          })
-      })
+          });
+        });
     }
   }
 
@@ -48,22 +48,22 @@ class ListView extends Component {
 
     if (this.state.familyView) {
       return this.props.colorFamilyFetch(this.props.location.state, page)
-      .then(res => {
-        this.setState({
-          currentColors: res.body.colors,
-          totalColorCount: res.body.total,
-          page: page,
-        })
-      })  
+        .then(res => {
+          this.setState({
+            currentColors: res.body.colors,
+            totalColorCount: res.body.total,
+            page: page,
+          });
+        });
     } else {
       return this.props.allColorsFetch(page)
-      .then(res => {
-        this.setState({
-          currentColors: res.body.colors,
-          totalColorCount: res.body.total,
-          page: page,
-        })
-      })  
+        .then(res => {
+          this.setState({
+            currentColors: res.body.colors,
+            totalColorCount: res.body.total,
+            page: page,
+          });
+        });
     }
   }
 
@@ -93,14 +93,13 @@ class ListView extends Component {
         <div className='col-3'></div>
 
         <ul className='page-list'>
-        {pageNumbers.length > 1
-          ? pageNumbers.map(num => {
+          {pageNumbers.length > 1
+            ? pageNumbers.map(num => {
               return <li 
                 key={num}
                 value={num}
-                onClick={this.handleClick}>{num}</li>
-            })
-          : null}
+                onClick={this.handleClick}>{num}</li>})
+            : null}
         </ul>
       </section>
     );

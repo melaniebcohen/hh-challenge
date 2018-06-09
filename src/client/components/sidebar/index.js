@@ -15,16 +15,16 @@ class SideBar extends Component {
 
   buttonSelect() {
     return this.props.randomFetch()
-    .then(res => {
-      this.props.history.push(`/detail/${res.body.color.hexCode}`)
-    })
+      .then(res => {
+        this.props.history.push(`/detail/${res.body.color.hexCode}`)
+      });
   }
   
   handleClick(color) {
     return this.props.history.push({
       pathname: `/`,
       state: color,
-    })
+    });
   }
 
   render() {

@@ -12,19 +12,19 @@ Router.get('/api/colors', (req, res) => {
     .limit(12)
     .then(colors => {
       Color.count({})
-      .then(total => {
-        return res.send({ colors, total })
-      })
-    })
+        .then(total => {
+          return res.send({ colors, total });
+        });
+    });
 });
 
 // GET SINGLE COLOR
 Router.get(`/api/color/:hexCode`, (req, res) => {
   Color.findOne({ hexCode: req.params.hexCode })
     .then(color => {
-      res.send({ color })
-    })
-})
+      res.send({ color });
+    });
+});
 
 // GET COLORS WITHIN 1 FAMILY
 Router.get('/api/colors/:family', (req, res) => {
@@ -35,24 +35,24 @@ Router.get('/api/colors/:family', (req, res) => {
     .limit(12)
     .then(colors => {
       Color.count({ colorFamily: req.params.family })
-      .then(total => {
-        return res.send({ colors, total })
-      })
-    })
+        .then(total => {
+          return res.send({ colors, total });
+        });
+    });
 });
 
 // GET RANDOM COLOR
 Router.get('/api/random', (req, res) => {
   Color.count().exec()
     .then(count => {
-      return Math.floor(Math.random() * count)
+      return Math.floor(Math.random() * count);
     })
     .then(random => {
-      return Color.findOne().skip(random)
+      return Color.findOne().skip(random);
     })
     .then(color => {
-      res.send({ color })
-    })
+      res.send({ color });
+    });
 });
 
 module.exports = Router;

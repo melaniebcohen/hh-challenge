@@ -2,7 +2,18 @@
   position: relative;
   margin: 75px 0 0 175px;
   text-align: center;
-  height: 100vh;
+  height: 70vh;
+
+  .col-1, .col-3 {
+    display: inline-block;
+    width: 5%;
+  }
+
+  .col-2 {
+    text-align: center;
+    display: inline-block;
+    width: 90%;
+  }
 
   .detail-item {
     .list-item {
@@ -12,12 +23,13 @@
   }
 
   button {
+    display: block;
     border-radius: $border-radius;
     font-family: $font;
     font-weight: bold;
     background-color: #FFF;
     border: 1px $primary-color solid;
-    margin: 30px 0 20px 20px;
+    margin: 30px auto 20px auto;
     padding: 10px 55px;
     font-size: 15px;
     transition: .4s
