@@ -1,6 +1,17 @@
 .list-view {
   position: relative;
-  margin: 50px 0 0 150px;
+  margin: 65px 0 0 175px;
+
+  .col-1, .col-3 {
+    display: inline-block;
+    width: 5%;
+  }
+
+  .col-2 {
+    text-align: center;
+    display: inline-block;
+    width: 90%;
+  }
 
   .page-list {
     text-align: center;
@@ -9,6 +20,20 @@
       display: inline-block;
       margin: 10px 10px 20px 10px;
       cursor: $cursor;
+    }
+
+    li:hover {
+      font-weight: bold;
+    }
+  }
+  
+  @media only screen and (min-width: 1050px) {
+    .col-1, .col-3 {
+      width: 10%;
+    }
+  
+    .col-2 {
+      width: 80%;
     }
   }
 }

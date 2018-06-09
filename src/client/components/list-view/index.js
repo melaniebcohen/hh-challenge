@@ -12,6 +12,7 @@ class ListView extends Component {
       currentColors: [],
       totalColorCount: 0,
       familyView: false,
+      pageSelected: false,
     }
     this.handleClick = this.handleClick.bind(this);
   }
@@ -22,7 +23,7 @@ class ListView extends Component {
     return this.props.allColorsFetch(this.state.page)
       .then(res => {
         this.setState({
-          currentColors: this.props.colors,
+          currentColors: res.body.colors,
           totalColorCount: res.body.total,
           familyView: false,
         })
@@ -78,14 +79,18 @@ class ListView extends Component {
 
     return (
       <section className='list-view'>
-        {this.state.currentColors
-          ? this.state.currentColors.map(color => {
-            return <ListItem 
-              key={color._id} 
-              color={color} />
-          })
-          : null
-        }
+        <div className='col-1'></div>
+        <div className='col-2'>
+          {this.state.currentColors
+            ? this.state.currentColors.map(color => {
+              return <ListItem 
+                key={color._id} 
+                color={color} />
+            })
+            : null
+          }
+        </div>
+        <div className='col-3'></div>
 
         <ul className='page-list'>
         {pageNumbers.length > 1

@@ -19,19 +19,6 @@ class SideBar extends Component {
       this.props.history.push(`/detail/${res.body.color.hexCode}`)
     })
   }
-  // this.props.history.push({
-  //   pathname: '/template',
-  //   search: '?query=abc',
-  //   state: { detail: response.data }
-  // })
-      // console.log(this.props.location.pathname)
-    // else {
-    //   return this.props.colorFamilyFetch(this.props.match.params.color)
-    //   .then(res => console.log(res.body))
-  
-    // }
-  // }
-
   
   handleClick(color) {
     return this.props.history.push({

@@ -46,11 +46,11 @@ Green	7CFC00	Lawn Green
 Green	7FFF00	Chartreuse
 Green	ADFF2F	Green Yellow
 Green	00FF7F	Spring Green
-Green	00FA9A	Medium Spring Green
+Green	00FA9A	Med Spring Green
 Green	90EE90	Light Green
 Green	98FB98	Pale Green
 Green	8FBC8F	Dark Sea Green
-Green	66CDAA	Medium Aquamarine
+Green	66CDAA	Medium Aqua
 Green	3CB371	Medium Sea Green
 Green	2E8B57	Sea Green
 Green	228B22	Forest Green
@@ -73,7 +73,7 @@ Red	FF0000	Red
 Yellow	FFFF00	Yellow
 Yellow	FFFFE0	Light Yellow
 Yellow	FFFACD	Lemon Chiffon
-Yellow	FAFAD2	Light Goldenrod Yellow
+Yellow	FAFAD2	Light Goldenrod
 Yellow	FFEFD5	Papaya Whip
 Yellow	FFE4B5	Moccasin
 Yellow	FFDAB9	PeachPuff
@@ -96,9 +96,9 @@ Purple	9932CC	Dark Orchid
 Purple	8B008B	Dark Magenta
 Purple	800080	Purple
 Purple	4B0082	Indigo
-Purple	483D8B	Dark Slate Blue
+Purple	483D8B	Dark Slate
 Purple	6A5ACD	Slate Blue
-Purple	7B68EE	Medium Slate Blue`;
+Purple	7B68EE	Medium Slate`;
 
 let allColors = colorData.split('\n');
 
