@@ -13,9 +13,8 @@ module.exports = {
   devServer: {
     port: 8080,
     open: true,
-    // contentBase: './dist'
     proxy: {
-      '/api': 'http://localhost:3000'
+      '/api': 'http://localhost:3000',
     },
     historyApiFallback: true,
   },
@@ -39,12 +38,12 @@ module.exports = {
         exclude: /\.svg/,
         loader: 'url-loader',
       },
-    ]
+    ],
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
       template: './public/index.html',
-    })
-  ]
+    }),
+  ],
 };

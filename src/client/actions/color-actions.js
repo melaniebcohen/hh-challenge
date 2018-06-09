@@ -21,7 +21,7 @@ export const randomFetch = (color) => ({
 });
 
 export const allColorsFetchRequest = (page) => (dispatch, getState) => {
-  return superagent.get(`http://localhost:3000/api/colors?page=${page}`)
+  return superagent.get(`https://hh-challenge.herokuapp.com/api/colors?page=${page}`)
     .set('Access-Control-Allow-Origin', '*')
     .then(res => {
       dispatch(allColorsFetch(res.body));
@@ -30,7 +30,7 @@ export const allColorsFetchRequest = (page) => (dispatch, getState) => {
 };
 
 export const colorFetchRequest = (hex) => (dispatch, getState) => {
-  return superagent.get(`http://localhost:3000/api/color/${hex}`)
+  return superagent.get(`https://hh-challenge.herokuapp.com/api/color/${hex}`)
     .set('Access-Control-Allow-Origin', '*')
     .then(res => {
       dispatch(colorFetch(res.body));
@@ -39,7 +39,7 @@ export const colorFetchRequest = (hex) => (dispatch, getState) => {
 };
 
 export const colorFamilyFetchRequest = (family, page) => (dispatch, getState) => {
-  return superagent.get(`http://localhost:3000/api/colors/${family}?page=${page}`)
+  return superagent.get(`https://hh-challenge.herokuapp.com/api/colors/${family}?page=${page}`)
     .set('Access-Control-Allow-Origin', '*')
     .then(res => {
       dispatch(familyFetch(res.body));
@@ -48,7 +48,7 @@ export const colorFamilyFetchRequest = (family, page) => (dispatch, getState) =>
 };
 
 export const randomFetchRequest = () => (dispatch, getState) => {
-  return superagent.get(`http://localhost:3000/api/random`)
+  return superagent.get(`https://hh-challenge.herokuapp.com/api/random`)
     .set('Access-Control-Allow-Origin', '*')
     .then(res => {
       dispatch(randomFetch(res.body));

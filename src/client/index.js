@@ -8,10 +8,6 @@ import colorStore from './reducers/colors-reducer.js';
 import App from './components/app';
 import './style/main.scss';
 
-import NavBar from './components/navbar';
-import SideBar from './components/sidebar';
-import ListView from './components/list-view';
-
 const store = colorStore();
 
 class Root extends Component {
