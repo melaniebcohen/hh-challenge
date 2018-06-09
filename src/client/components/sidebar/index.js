@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { randomFetchRequest } from '../../actions/color-actions.js';
+import { randomFetchRequest, colorFamilyFetchRequest } from '../../actions/color-actions.js';
 
 class SideBar extends Component {
   constructor (props) {
@@ -10,20 +10,33 @@ class SideBar extends Component {
       colorList: ['Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Purple', 'Brown', 'Gray'],
     };
     this.buttonSelect = this.buttonSelect.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   buttonSelect() {
     return this.props.randomFetch()
-    .then(() => this.props.history.push('/random'))
+      .then(res => {
+        this.props.history.push(`/detail/${res.body.color.hexCode}`);
+      });
   }
   
+  handleClick(color) {
+    return this.props.history.push({
+      pathname: `/`,
+      state: color,
+    });
+  }
+
   render() {
     return (
       <section className='sidebar'>
         <button onClick={this.buttonSelect}>Random Color</button>
         <ul>
           {this.state.colorList.map(color => {
-            return <li key={color}>{color}</li>
+            return <li 
+              value={color}
+              key={color}
+              onClick={() => this.handleClick(color)}>{color}</li>;
           })}
         </ul>
       </section>
@@ -37,6 +50,7 @@ let mapStateToProps = (state) => ({
 
 let mapDispatchToProps = (dispatch) => ({
   randomFetch: () => dispatch(randomFetchRequest()),
+  colorFamilyFetch: (family) => dispatch(colorFamilyFetchRequest(family)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SideBar);

@@ -1,11 +1,41 @@
 .list-view {
   position: relative;
-  margin: 50px 0 0 150px;
+  margin: 75px 0 0 175px;
 
-  // height: 100vh;
-  // width: 100%;
-  // display: inline-block;
-  // // float: right;
-  // background: blue;
-  // padding-left: 160px;
+  .col-1, .col-3 {
+    display: inline-block;
+    width: 5%;
+  }
+
+  .col-2 {
+    text-align: center;
+    display: inline-block;
+    width: 90%;
+  }
+
+  .page-list {
+    margin-top: 2%;
+    text-align: center;
+
+    li {
+      display: inline-block;
+      margin: 10px 10px 20px 10px;
+      cursor: $cursor;
+    }
+
+    li:hover {
+      font-weight: bold;
+      text-decoration: underline;
+    }
+  }
+  
+  @media only screen and (min-width: 1050px) {
+    .col-1, .col-3 {
+      width: 10%;
+    }
+  
+    .col-2 {
+      width: 80%;
+    }
+  }
 }

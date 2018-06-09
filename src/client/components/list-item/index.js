@@ -5,17 +5,15 @@ import { withRouter } from 'react-router-dom';
 
 class ListItem extends Component {
   render() {
-    let hexCode = `#${this.props.color.hexCode}`
+    let { color, history } = this.props;
+    let hexCode = `#${color.hexCode}`;
     
     return (
       <div 
         className='list-item'
-        onClick={() => this.props.history.push(`/detail/${this.props.color.hexCode}`)}>
-        <div 
-          className='list-item-color'
-          style={{ backgroundColor: hexCode }}>
-        </div>
-        <p>{this.props.color.colorName}</p>
+        onClick={() => history.push(`/detail/${color.hexCode}`)}>
+        <div className='list-item-color' style={{ backgroundColor: hexCode }}></div>
+        <p>{color.colorName}</p>
         <p>{hexCode}</p>
       </div>
     );

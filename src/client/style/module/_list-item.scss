@@ -1,14 +1,14 @@
 .list-item {
   border: 1px $secondary-color solid;
   border-radius: $border-radius;
-  margin: $gutter-lg/2;
+  margin: 15px;
   box-shadow: $blur;
-  width: 115px;
-  height: 130px;
   display: inline-block;
-
+  width: 175px;
+  height: 190px;
+  
   .list-item-color {
-    height: 100px;
+    height: 75%;
     border-radius: $border-radius $border-radius 0 0;
   }
 
@@ -19,6 +19,21 @@
   
   p:last-child {
     margin: 0 0 0 4px;
+  }
+
+  @media only screen and (min-width: 550px) {
+    width: 135px;
+    height: 160px;
+  }
+
+  @media only screen and (min-width: 950px) {
+    width: 140px;
+    height: 155px;
+  }
+
+  @media only screen and (min-width: 1075px) {
+    width: 145px;
+    height: 160px;
   }
 }
 

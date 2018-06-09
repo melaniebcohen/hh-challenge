@@ -3,9 +3,9 @@
   box-shadow: $blur-horizontal;
   position: fixed;
   z-index: 1;
-  top: 50px;
+  top: 60px;
   left: 0;
-  width: 150px;
+  width: 175px;
   height: 100vh;
 
   button {
@@ -14,7 +14,9 @@
     font-weight: bold;
     background-color: #FFF;
     border: 1px $primary-color solid;
+    margin: 30px 0 20px 18px;
     padding: 8px 25px;
+    font-size: 13px;
     transition: .4s
   }
 
@@ -24,6 +26,12 @@
   }
 
   li {
+    margin: 10px 0 0 20px;
+    cursor: $cursor;
     color: $primary-color;
+  }
+
+  li:hover, link:active {
+    font-weight: bold;
   }
 }

@@ -1,24 +1,55 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { colorFetchRequest } from '../../actions/color-actions.js';
 
 import DetailItem from '../detail-item';
 import ListItem from '../list-item';
+import DetailListItem from '../detail-list-item';
 
 class DetailView extends Component {
+  constructor (props) {
+    super(props);
+    this.createList = this.createList.bind(this);
+  }
+
   componentWillMount() {
-    return this.props.colorFetch(this.props.match.params.hex)
+    return this.props.colorFetch(this.props.match.params.hex);
+  }
+
+  createList() {
+    let detailListItems = [];
+    
+    for (let i = 1; i < 6; i++) {
+      let itemId = `detail-item-${i}`;
+
+      detailListItems.push(
+        <DetailListItem 
+          color={this.props.color}
+          id={itemId}
+          key={i} 
+        />
+      );
+    }
+
+    return detailListItems;
   }
 
   render() {
     return (
       <section className='detail-view'>
+        <div className='col-1'></div>
+
         {this.props.color
-        ? <DetailItem color={this.props.color[0]} />
-        : null
+          ? <div className='col-2'>
+            <DetailItem color={this.props.color} />
+            {this.createList()}
+            <button onClick={() => this.props.history.push('/')}>Clear</button>
+          </div>
+          : null
         }
 
-        <button onClick={() => this.props.history.push('/')}>Clear</button>
+        <div className='col-3'></div>
+
       </section>
     );
   }

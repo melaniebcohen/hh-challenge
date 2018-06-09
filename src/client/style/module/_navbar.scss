@@ -4,7 +4,7 @@
   position: fixed;
   z-index: 50;
   top: 0;
-  height: 50px;
+  height: 60px;
   width: 100%;
 
   .nav-icon {
@@ -14,7 +14,7 @@
     svg {
       height: 40px;
       width: 40px;
-      margin: 5px 0 0 10px;
+      margin: 10px 0 0 26px;
     }
 
     svg:hover {
@@ -29,8 +29,8 @@
     input {
       border-radius: $border-radius;
       border: none;
-      padding: 8px;
-      margin: 10px 20px 0 0;
+      padding: 8px 20px;
+      margin: 15px 35px 0 0;
       float: right;
       font-family: $font;
     }
