@@ -30,6 +30,8 @@ app.use(colorRouter);
 app.use(favicon(`${__dirname}/favicon.ico`));
 app.use(express.static(path.join(__dirname, 'dist')));
 
-app.listen(PORT, () => {
-  console.log(`server up at ${PORT}`);
+const server = module.exports = app.listen(PORT, () => {
+  console.log(`server up: ${PORT}`);
 });
+
+server.isRunning = true;
