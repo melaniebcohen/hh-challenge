@@ -17,17 +17,18 @@ export default class DetailListItem extends Component {
   }
 
   render() {
-    let hexCode = `#${this.props.color.hexCode}`;
+    let { color, id } = this.props;
+    let hexCode = `#${color.hexCode}`;
     let hexOpacity = `${this.findOpacity()} opacity`;
 
     return (
       <div className='detail-list-item'>
         <div 
           className='detail-list-color'
-          id={this.props.id}
+          id={id}
           style={{ backgroundColor: hexCode }}>
         </div>
-        <p>{this.props.color.colorName}</p>
+        <p>{color.colorName}</p>
         <p>{hexOpacity}</p>
       </div>
     );
