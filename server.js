@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const path = require('path');
 const cors = require('cors');
 const app = express();
+const favicon = require('serve-favicon');
 
 const Color = require('./model/color.js');
 const colors = require('./data/colorData.js');
@@ -26,6 +27,7 @@ mongoose.connect(process.env.MONGODB_URI)
 
 app.use(cors());
 app.use(colorRouter);
+app.use(favicon(`${__dirname}/favicon.ico`));
 app.use(express.static(path.join(__dirname, 'dist')));
 
 app.listen(PORT, () => {
