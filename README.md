@@ -1,8 +1,5 @@
 # Helpful Human Applicant Interview Challenge Submission
-## o͡͡͡╮░ O ◡ O ░╭o͡͡͡
-
-## Time
-Keep track of how much time you spent on the challenge but also feel free to spend as much time as you want. Your time is very valuable and we are thankful you're taking the time demonstrate your skills for us.
+<h3 align="center">o͡͡͡╮░ O ◡ O ░╭o͡͡͡</h3>
 
 ## Core Goals
 - Replicate design
@@ -18,7 +15,7 @@ Keep track of how much time you spent on the challenge but also feel free to spe
 
 ## Stretch Goals
 - Design
-  - [x] Make it responsive - _Note: App is only somewhat responsive at this point_
+  - [x] Make it responsive - _Note: App is only partially responsive at this point_
 - Functionality
   - Generate color list from a script
 
@@ -35,4 +32,16 @@ Keep track of how much time you spent on the challenge but also feel free to spe
 - Data
   - Fetch data with GraphQL
 
-## Technology Used
+## App Components
+```
+<App />
+  <Provider />
+    <BrowserRouter />
+      <NavBar />
+      <SideBar />
+        <ListView />
+          <ListItem />
+        <DetailView />
+          <DetailItem />
+          <DetailListItem />
+```
