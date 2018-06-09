@@ -1,10 +1,6 @@
-# Helpful Human Applicant Interview Challenge
+# Helpful Human Applicant Interview Challenge Submission
 
-Welcome to Helpful Human's at home proficiency challenge! This challenge gauges your knowledge on a few different metrics that we use, in part, to evaluate your skills. In this repo, you will find the assets that are required to replicate the design that is also included in this repo. Both .sketch and .png assets are available.
-
-To get started, clone this repo. Add your work to it in whatever structure you prefer, then push it to your own, renamed repo. When you are finished, follow the instructions at the end of this document.
-
-This challenge has different milestones.
+https://en.wikipedia.org/wiki/Web_colors
 
 ## Core
 Stated briefly, the core goal is to create a simple but functional app that has a data, view and logic layer. The app will display color swatches, and that's about it!

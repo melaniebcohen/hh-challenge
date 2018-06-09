@@ -1,0 +1,19 @@
+.detail-item {
+  position: relative;
+  height: 75%;
+
+  .list-item {
+    width: 85%;
+    height: 80%;
+    text-align: left;
+  }
+
+  p {
+    font-size: 20px;
+    margin: 28px 5% 5px 5%;
+  }
+
+  p:last-child {
+    margin: 0 5%;
+  }
+}

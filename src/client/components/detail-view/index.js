@@ -1,22 +1,48 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { colorFetchRequest } from '../../actions/color-actions.js';
 
 import DetailItem from '../detail-item';
 import ListItem from '../list-item';
+import DetailListItem from '../detail-list-item';
 
 class DetailView extends Component {
+  constructor (props) {
+    super(props);
+    this.createList = this.createList.bind(this);
+  }
+
   componentWillMount() {
     return this.props.colorFetch(this.props.match.params.hex)
-    .then(() => console.log(this.props))
+  }
+
+  createList() {
+    let detailListItems = [];
+    
+    for (let i = 1; i < 6; i++) {
+      let itemId = `detail-item-${i}`;
+      console.log(itemId)
+
+      detailListItems.push(
+        <DetailListItem 
+          color={this.props.color}
+          id={itemId}
+          key={i} 
+        />
+      )
+    }
+
+    return detailListItems;
   }
 
   render() {
-    console.log(this.props)
     return (
       <section className='detail-view'>
         {this.props.color
-        ? <DetailItem color={this.props.color} />
+        ? <Fragment>
+            <DetailItem color={this.props.color} />
+            {this.createList()}
+          </Fragment>
         : null
         }
 
