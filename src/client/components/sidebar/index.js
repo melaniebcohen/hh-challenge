@@ -34,18 +34,10 @@ class SideBar extends Component {
 
   
   handleClick(color) {
-    // console.log('boo')
     return this.props.history.push({
       pathname: `/`,
       state: color,
     })
-    // return this.props.colorFamilyFetch(color)
-    // .then(res => {
-    //   return this.props.history.push({
-    //     pathname: `/`,
-    //     state: { color: res.body }
-    //   })
-    // });
   }
 
   render() {

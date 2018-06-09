@@ -3,15 +3,18 @@
 const Router = require('express').Router();
 const Color = require('../model/color');
 
-// GET ALL COLORS - will have pagination
+// GET ALL COLORS
 Router.get('/api/colors', (req, res) => {
   let page = parseInt(req.query.page - 1) || 0;
-    
+
   Color.find({})
-    .skip(parseInt(page)*12)
+    .skip(parseInt(page) * 12)
     .limit(12)
     .then(colors => {
-      res.send({ colors })
+      Color.count({})
+      .then(total => {
+        return res.send({ colors, total })
+      })
     })
 });
 
@@ -25,11 +28,16 @@ Router.get(`/api/color/:hexCode`, (req, res) => {
 
 // GET COLORS WITHIN 1 FAMILY
 Router.get('/api/colors/:family', (req, res) => {
-  console.log(req.params.family)
-  Color.find({ colorFamily: req.params.family })
+  let page = parseInt(req.query.page - 1) || 0;
+
+  return Color.find({ colorFamily: req.params.family })
+    .skip(parseInt(page) * 12)
+    .limit(12)
     .then(colors => {
-      console.log(colors)
-      res.send({ colors })
+      Color.count({ colorFamily: req.params.family })
+      .then(total => {
+        return res.send({ colors, total })
+      })
     })
 });
 

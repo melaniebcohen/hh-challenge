@@ -24,6 +24,11 @@
   }
 
   li {
+    cursor: $cursor;
     color: $primary-color;
+  }
+
+  li:hover, link:active {
+    font-weight: bold;
   }
 }

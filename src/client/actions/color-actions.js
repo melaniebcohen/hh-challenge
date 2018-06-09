@@ -38,11 +38,10 @@ export const colorFetchRequest = (hex) => (dispatch, getState) => {
     });
 };
 
-export const colorFamilyFetchRequest = (family) => (dispatch, getState) => {
-  return superagent.get(`http://localhost:3000/api/colors/${family}`)
+export const colorFamilyFetchRequest = (family, page) => (dispatch, getState) => {
+  return superagent.get(`http://localhost:3000/api/colors/${family}?page=${page}`)
     .set('Access-Control-Allow-Origin', '*')
     .then(res => {
-      // console.log(res.body)
       dispatch(familyFetch(res.body));
       return res;
     });

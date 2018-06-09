@@ -6,7 +6,6 @@ import NavBar from '../navbar';
 import SideBar from '../sidebar';
 import ListView from '../list-view';
 import DetailView from '../detail-view';
-import RandomView from '../random-view';
 
 export default class App extends Component {
   render() {
@@ -17,7 +16,7 @@ export default class App extends Component {
           <Route path='*' component={SideBar} />
           <Route exact path='/' component={ListView} />
           {/* <Route path='/family/:color' component={ListView} /> */}
-          <Route path='/random' component={RandomView} />
+          {/* <Route path='/random' component={RandomView} /> */}
           <Route path='/detail/:hex' component={DetailView} />
         </div>
       </BrowserRouter>

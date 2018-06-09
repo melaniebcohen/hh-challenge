@@ -10,28 +10,33 @@ class ListView extends Component {
     this.state = {
       page: 1,
       currentColors: [],
-      totalColorCount: 101,
+      totalColorCount: 0,
+      familyView: false,
     }
     this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
     this.props.location.state = null;
+
     return this.props.allColorsFetch(this.state.page)
       .then(res => {
         this.setState({
           currentColors: this.props.colors,
+          totalColorCount: res.body.total,
+          familyView: false,
         })
       })
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.location.state !== nextProps.location.state) {
-      return this.props.colorFamilyFetch(nextProps.location.state)
+      return this.props.colorFamilyFetch(nextProps.location.state, this.state.page)
         .then(res => {
           this.setState({
             currentColors: res.body.colors,
-            totalColorCount: res.body.colors.length,
+            totalColorCount: res.body.total,
+            familyView: true,
           })
       })
     }
@@ -40,13 +45,25 @@ class ListView extends Component {
   handleClick(e) {
     let page = e.target.value;
 
-    return this.props.allColorsFetch(page)
-    .then(res => {
-      this.setState({
-        currentColors: res.body.colors,
-        page: page,
-      })
-    })
+    if (this.state.familyView) {
+      return this.props.colorFamilyFetch(this.props.location.state, page)
+      .then(res => {
+        this.setState({
+          currentColors: res.body.colors,
+          totalColorCount: res.body.total,
+          page: page,
+        })
+      })  
+    } else {
+      return this.props.allColorsFetch(page)
+      .then(res => {
+        this.setState({
+          currentColors: res.body.colors,
+          totalColorCount: res.body.total,
+          page: page,
+        })
+      })  
+    }
   }
 
   render() {
@@ -54,6 +71,7 @@ class ListView extends Component {
 
     let pageNumbers = [];
     let pages = Math.ceil(totalColorCount/12);
+    
     for (let i = 1; i <= pages; i++) {
       pageNumbers.push(i);
     }
@@ -70,12 +88,14 @@ class ListView extends Component {
         }
 
         <ul className='page-list'>
-        {pageNumbers.map(num => {
-          return <li 
-            key={num}
-            value={num}
-            onClick={this.handleClick}>{num}</li>
-        })}
+        {pageNumbers.length > 1
+          ? pageNumbers.map(num => {
+              return <li 
+                key={num}
+                value={num}
+                onClick={this.handleClick}>{num}</li>
+            })
+          : null}
         </ul>
       </section>
     );
@@ -88,7 +108,7 @@ let mapStateToProps = (state) => ({
 
 let mapDispatchToProps = (dispatch) => ({
   allColorsFetch: (page) => dispatch(allColorsFetchRequest(page)),
-  colorFamilyFetch: (family) => dispatch(colorFamilyFetchRequest(family)),
+  colorFamilyFetch: (family, page) => dispatch(colorFamilyFetchRequest(family, page)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ListView);
