@@ -16,7 +16,7 @@ class SideBar extends Component {
   buttonSelect() {
     return this.props.randomFetch()
       .then(res => {
-        this.props.history.push(`/detail/${res.body.color.hexCode}`)
+        this.props.history.push(`/detail/${res.body.color.hexCode}`);
       });
   }
   
@@ -36,7 +36,7 @@ class SideBar extends Component {
             return <li 
               value={color}
               key={color}
-              onClick={() => this.handleClick(color)}>{color}</li>
+              onClick={() => this.handleClick(color)}>{color}</li>;
           })}
         </ul>
       </section>

@@ -85,7 +85,7 @@ class ListView extends Component {
             ? this.state.currentColors.map(color => {
               return <ListItem 
                 key={color._id} 
-                color={color} />
+                color={color} />;
             })
             : null
           }
@@ -98,7 +98,8 @@ class ListView extends Component {
               return <li 
                 key={num}
                 value={num}
-                onClick={this.handleClick}>{num}</li>})
+                onClick={this.handleClick}>{num}</li>;
+            })
             : null}
         </ul>
       </section>
