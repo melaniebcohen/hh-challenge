@@ -1,4 +1,4 @@
-# Helpful Human Applicant Interview Challenge Submission
+<h1 align="center">Helpful Human Applicant Interview Challenge Submission</h1>
 <h3 align="center">o͡͡͡╮░ O ◡ O ░╭o͡͡͡</h3>
 
 ## Core Goals
@@ -31,6 +31,11 @@
 
 - Data
   - Fetch data with GraphQL
+
+## Future Enhancements
+- More robust testing
+- Error handling
+- Fully responsive design
 
 ## App Components
 ```
