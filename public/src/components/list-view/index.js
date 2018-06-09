@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { BrowserHistory } from 'react-router-dom';
 import { allColorsFetchRequest, colorFamilyFetchRequest } from '../../actions/color-actions.js';
 
 import ListItem from '../list-item';
@@ -12,34 +13,52 @@ class ListView extends Component {
       currentColors: [],
       totalColorCount: 0,
       familyView: false,
-      pageSelected: false,
     };
     this.handleClick = this.handleClick.bind(this);
+    this.fetchColors = this.fetchColors.bind(this);
   }
 
   componentDidMount() {
-    this.props.location.state = null;
+    if (!this.props.colors && this.props.location.state === undefined) {
+      this.fetchColors('all');
+    } else if (this.props.location.state !== undefined) {
+      this.fetchColors('family');
+    }
+  }
 
-    return this.props.allColorsFetch(this.state.page)
-      .then(res => {
-        this.setState({
-          currentColors: res.body.colors,
-          totalColorCount: res.body.total,
-          familyView: false,
-        });
+  componentDidUpdate() {
+    if (this.fetchingColors) {
+      this.fetchingColors = false;
+  
+      this.setState({
+        currentColors: this.props.colors,
+        totalColorCount: this.props.total,
       });
+    }
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.location.state !== nextProps.location.state) {
-      return this.props.colorFamilyFetch(nextProps.location.state, this.state.page)
+    if (this.props.location.state !==  nextProps.location.state) {
+      return this.props.colorFamilyFetch(nextProps.location.state, 1)
         .then(res => {
           this.setState({
             currentColors: res.body.colors,
             totalColorCount: res.body.total,
             familyView: true,
           });
-        });
+        })
+        .then(() => this.props.history.location.state === '');
+    }
+  }
+
+  fetchColors(colors) {
+    this.fetchingColors = true;
+
+    if (colors === 'all') {
+      return this.props.allColorsFetch(this.state.page);
+    } else if (colors === 'family') {
+      return this.props.colorFamilyFetch(this.props.location.state, this.state.page)
+        .then(() => this.props.history.push({ state: '' }));
     }
   }
 
@@ -48,19 +67,19 @@ class ListView extends Component {
 
     if (this.state.familyView) {
       return this.props.colorFamilyFetch(this.props.location.state, page)
-        .then(res => {
+        .then(() => {
           this.setState({
-            currentColors: res.body.colors,
-            totalColorCount: res.body.total,
+            currentColors: this.props.colors,
+            totalColorCount: this.props.total,
             page: page,
           });
         });
     } else {
       return this.props.allColorsFetch(page)
-        .then(res => {
+        .then(() => {
           this.setState({
-            currentColors: res.body.colors,
-            totalColorCount: res.body.total,
+            currentColors: this.props.colors,
+            totalColorCount: this.props.total,
             page: page,
           });
         });
@@ -109,6 +128,7 @@ class ListView extends Component {
 
 let mapStateToProps = (state) => ({
   colors: state.colors,
+  total: state.total,
 });
 
 let mapDispatchToProps = (dispatch) => ({
