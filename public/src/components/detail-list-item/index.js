@@ -17,9 +17,9 @@ export default class DetailListItem extends Component {
   }
 
   render() {
-    let { color, id } = this.props;
-    let hexCode = `#${color.hexCode}`;
-    let hexOpacity = `${this.findOpacity()} opacity`;
+    const { color, id } = this.props;
+    const hexCode = `#${color.hexCode}`;
+    const hexOpacity = `${this.findOpacity()} opacity`;
 
     return (
       <div className='detail-list-item'>

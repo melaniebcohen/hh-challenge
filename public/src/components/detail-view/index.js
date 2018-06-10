@@ -34,7 +34,7 @@ class DetailView extends Component {
   }
 
   render() {
-    let { color, history } = this.props;
+    const { color, history } = this.props;
 
     return (
       <section className='detail-view'>
