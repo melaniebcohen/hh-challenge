@@ -28,7 +28,11 @@ mongoose.connect(process.env.MONGODB_URI)
 app.use(cors());
 app.use(colorRouter);
 app.use(favicon(`${__dirname}/favicon.ico`));
-app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(`${__dirname}/dist`));
+
+app.get('*', (req, res) => {
+  res.sendFile(`${__dirname}/dist/index.html`);
+});
 
 const server = module.exports = app.listen(PORT, () => {
   console.log(`server up: ${PORT}`);
