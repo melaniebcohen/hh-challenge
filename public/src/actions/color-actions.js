@@ -33,7 +33,6 @@ export const colorFetchRequest = (hex) => (dispatch, getState) => {
   return superagent.get(`https://hh-challenge.herokuapp.com/api/color/${hex}`)
     .set('Access-Control-Allow-Origin', '*')
     .then(res => {
-      console.log(res.body)
       dispatch(colorFetch(res.body));
       return res;
     });
