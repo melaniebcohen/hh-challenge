@@ -2,16 +2,16 @@
   border: 1px $secondary-color solid;
   border-radius: $border-radius;
   box-shadow: $blur;
+  width: $width;
+  height: $height;
   display: inline-block;
-  width: 175px;
-  height: 190px;
   text-align: left;
   margin: 10px;
 
   .detail-list-color {
+    border-radius: $border-radius $border-radius 0 0;
     height: 70%;
     margin-bottom: 12px;
-    border-radius: $border-radius $border-radius 0 0;
   }
   
   #detail-item-1 {
