@@ -1,11 +1,11 @@
 .sidebar {
   background-color: $secondary-color;
   box-shadow: $blur-horizontal;
+  width: $left-margin;
+  top: nav-height;
   position: fixed;
   z-index: 1;
-  top: 60px;
   left: 0;
-  width: 175px;
   height: 100vh;
 
   button {

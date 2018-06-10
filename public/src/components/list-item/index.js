@@ -3,8 +3,8 @@ import { withRouter } from 'react-router-dom';
 
 class ListItem extends Component {
   render() {
-    let { color, history } = this.props;
-    let hexCode = `#${color.hexCode}`;
+    const { color, history } = this.props;
+    const hexCode = `#${color.hexCode}`;
     
     return (
       <div 

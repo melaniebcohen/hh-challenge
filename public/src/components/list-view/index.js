@@ -10,7 +10,7 @@ class ListView extends Component {
     super(props);
     this.state = {
       page: 1,
-      currentColors: [],
+      currentColors: '',
       totalColorCount: 0,
       familyView: false,
     };
@@ -37,6 +37,7 @@ class ListView extends Component {
     }
   }
 
+  // fetch color families when a sidebar list item is selected
   componentWillReceiveProps(nextProps) {
     if (this.props.location.state !==  nextProps.location.state) {
       return this.props.colorFamilyFetch(nextProps.location.state, 1)
@@ -51,7 +52,8 @@ class ListView extends Component {
     }
   }
 
-  fetchColors(colors) {
+  // fetch colors on page load
+  fetchColors(colors, page) {
     this.fetchingColors = true;
 
     if (colors === 'all') {
@@ -62,8 +64,9 @@ class ListView extends Component {
     }
   }
 
+  // handle pagination selections
   handleClick(e) {
-    let page = e.target.value;
+    const page = e.target.value;
 
     if (this.state.familyView) {
       return this.props.colorFamilyFetch(this.props.location.state, page)
@@ -87,10 +90,9 @@ class ListView extends Component {
   }
 
   render() {
-    let { currentColors, totalColorCount } = this.state;
-
-    let pageNumbers = [];
-    let pages = Math.ceil(totalColorCount/12);
+    const { currentColors, totalColorCount } = this.state;
+    const pageNumbers = [];
+    const pages = Math.ceil(totalColorCount/12);
     
     for (let i = 1; i <= pages; i++) {
       pageNumbers.push(i);

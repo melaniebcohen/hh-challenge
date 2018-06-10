@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 
 export default class DetailItem extends Component {
   render() {
-    let { color } = this.props;
-    let hexCode = `#${color.hexCode}`;
+    const { color } = this.props;
+    const hexCode = `#${color.hexCode}`;
 
     return (
       <section className='detail-item'>

@@ -1,11 +1,11 @@
 .list-item {
   border: 1px $secondary-color solid;
   border-radius: $border-radius;
-  margin: 15px;
   box-shadow: $blur;
+  width: $width;
+  height: $height;
+  margin: 15px;
   display: inline-block;
-  width: 175px;
-  height: 190px;
   
   .list-item-color {
     height: 75%;

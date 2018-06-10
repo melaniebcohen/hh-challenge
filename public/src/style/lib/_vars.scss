@@ -5,9 +5,14 @@ $font: 'Source Serif Pro', serif;
 $primary-color: #363C3C;
 $secondary-color: #D6D8D8;
 
-// gutter 
-$gutter-lg: 5vw;
-$gutter-sm: $gutter-lg/2;
+// view margins
+$main-view-margin: 5vw;
+$top-margin: 60px;
+$left-margin: 175px;
+
+// list item
+$width: 175px;
+$height: 190px;
 
 // blur
 $blur: 1px 1px 3px rgba(0,0,0, .1);
@@ -16,6 +21,7 @@ $blur-horizontal: 2px 0 4px rgba(0,0,0, .5);
 
 // multi-purpose
 $border-radius: 6px;
+$nav-height: 60px;
 
 // cursor
 $cursor: pointer;
