@@ -2,7 +2,7 @@
 <h3 align="center">o͡͡͡╮░ O ◡ O ░╭o͡͡͡</h3>
 
 ## Updates based on Helpful Human feedback
-- Transitioned to CSS Flexbox in order to more accurately adhere to the designs
+- Transitioned to CSS Flexbox in order to more accurately adhere to the designs (note: the app is no longer responsive to make sure it's closer to the design specs)
 - Current page number is now differentiated
 - Elements not in the designs have been removed (specifically 'All Colors' option and color names)
 - Search bar is functional for both hex codes and color families (error handling would be a future improvement)
@@ -34,7 +34,7 @@
   - Add tints/shades in detail view 
 
 - Functionality
-  - Add search functionality
+  - [x] Add search functionality
   - Color generation script guarantees same colors and order
   - [x] Group by color (Make sidebar menu functional)
 

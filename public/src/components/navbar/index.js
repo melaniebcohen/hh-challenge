@@ -11,10 +11,16 @@ class NavBar extends Component {
       currentColors: '',
       totalColorCount: 0,
       familyView: false,
+      searchVal: '',
     };
+    this.handleChange = this.handleChange.bind(this);
     this.handleEnter = this.handleEnter.bind(this);
   }
   
+  handleChange(e) {
+    this.setState({ searchVal: e.target.value });
+  }
+
   handleEnter(e) {
     const color = e.target.value;
 
@@ -26,16 +32,17 @@ class NavBar extends Component {
         let letter = newColor[0].toUpperCase();
         newColor.splice(0, 1, letter);
 
-        this.props.history.push({
+        return this.setState({ searchVal: '' }, () => this.props.history.push({
           pathname: `/`,
           state: newColor.join(''),
-        });
+        }));
       } else {
         // If a hex code is entered
-        return this.props.colorFetch(color.toUpperCase())
+        this.props.colorFetch(color.toUpperCase())
           .then(res => {
             this.props.history.push(`/detail/${res.body.color.hexCode}`);
-          });
+          })
+          .then(() => this.setState({ searchVal: '' }));
       }
     } 
   }
@@ -48,14 +55,18 @@ class NavBar extends Component {
         <div className='nav-container'>
           <div className='nav-icon' dangerouslySetInnerHTML={innerHTML}></div>
           <div className='nav-search'>
-            <input placeholder='Search' onKeyUp={this.handleEnter}></input>
+            <input 
+              name='searchVal'
+              placeholder='Search' 
+              onChange={this.handleChange}
+              value={this.state.searchVal}
+              onKeyUp={this.handleEnter} />
           </div>
         </div>
       </nav>
     );
   }
 }
-
 
 let mapStateToProps = (state) => ({
   colors: state.colors,
