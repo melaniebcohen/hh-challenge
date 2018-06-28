@@ -1,8 +1,14 @@
-# Helpful Human Applicant Interview Challenge Submission
-## o͡͡͡╮░ O ◡ O ░╭o͡͡͡
+<h1 align="center">Helpful Human Applicant Interview Challenge Submission</h1>
+<h3 align="center">o͡͡͡╮░ O ◡ O ░╭o͡͡͡</h3>
 
-## Time
-Keep track of how much time you spent on the challenge but also feel free to spend as much time as you want. Your time is very valuable and we are thankful you're taking the time demonstrate your skills for us.
+## Updates based on Helpful Human feedback
+- Transitioned to CSS Flexbox in order to more accurately adhere to the designs
+- Current page number is now differentiated
+- Elements not in the designs have been removed (specifically 'All Colors' option and color names)
+- Search bar is functional for both hex codes and color families (error handling would be a future improvement)
+- Consolidated actions and reducer
+- Reinstalled dependencies and devDependencies based on when they are needed
+- Getting started guide has been added to documentation
 
 ## Core Goals
 - Replicate design
@@ -18,7 +24,7 @@ Keep track of how much time you spent on the challenge but also feel free to spe
 
 ## Stretch Goals
 - Design
-  - [x] Make it responsive - _Note: App is only somewhat responsive at this point_
+  - Make it responsive
 - Functionality
   - Generate color list from a script
 
@@ -35,4 +41,27 @@ Keep track of how much time you spent on the challenge but also feel free to spe
 - Data
   - Fetch data with GraphQL
 
-## Technology Used
+## Getting Started
+1. To install this application, downloaded the files from this repo by running `git clone` or by forking the repo and then cloning it
+2. `cd` to the repository and run `npm i`
+3. Create a `.env` file and make sure your file is pointing to a Mongo URI using `MONGODB_URI` as an environment variable. Example: ` MONGODB_URI='mongodb://localhost/hh-challenge`
+4. Use the `npm run dev` script  to run the application
+
+## Future Enhancements
+- More robust testing
+- Error handling
+- Fully responsive design
+
+## App Components
+```
+<App />
+  <Provider />
+    <BrowserRouter />
+      <NavBar />
+      <SideBar />
+        <ListView />
+          <ListItem />
+        <DetailView />
+          <DetailItem />
+          <DetailListItem />
+```
