@@ -5,13 +5,9 @@ let colorReducer = (state=[], action) => {
   let { type, payload } = action;
 
   switch(type) {
-  case 'ALL_COLORS_FETCH':
+  case 'MULTIPLE_COLORS_FETCH':
     return payload;
-  case 'COLOR_FETCH': 
-    return payload;
-  case 'FAMILY_FETCH':
-    return payload;
-  case 'RANDOM_FETCH':
+  case 'SINGLE_COLOR_FETCH': 
     return payload;
   default:
     return state;

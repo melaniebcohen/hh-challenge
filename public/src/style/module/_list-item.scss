@@ -2,13 +2,12 @@
   border: 1px $secondary-color solid;
   border-radius: $border-radius;
   box-shadow: $blur;
-  width: $width;
-  height: $height;
-  margin: 15px;
-  display: inline-block;
+  width: 130px;
+  height: 160px;
+  margin: 10px 15px;
   
   .list-item-color {
-    height: 75%;
+    height: 125px;
     border-radius: $border-radius $border-radius 0 0;
   }
 
@@ -16,28 +15,13 @@
     font-size: 12px;
     margin: 3px 0 0 4px;
   }
-  
-  p:last-child {
-    margin: 0 0 0 4px;
-  }
-
-  @media only screen and (min-width: 550px) {
-    width: 135px;
-    height: 160px;
-  }
-
-  @media only screen and (min-width: 950px) {
-    width: 140px;
-    height: 155px;
-  }
-
-  @media only screen and (min-width: 1075px) {
-    width: 145px;
-    height: 160px;
-  }
 }
 
 .list-item:hover {
   cursor: $cursor;
   box-shadow: 2px 2px 3px rgba(0,0,0, .2);
 }
+
+.list-item:nth-child(3n) {
+  break-after: always;
+};

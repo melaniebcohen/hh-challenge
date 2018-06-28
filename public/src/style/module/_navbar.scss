@@ -1,38 +1,33 @@
 .nav {
   background-color: $primary-color;
-  box-shadow: $blur-vertical;
+  box-shadow: $blur-horizontal;
   height: $top-margin;
   position: fixed;
   z-index: 50;
   top: 0;
   width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 
-  .nav-icon {
-    width: 20%;
-    float: left;
-    
-    svg {
-      height: 40px;
-      width: 40px;
-      margin: 10px 0 0 26px;
-    }
-
-    svg:hover {
-      cursor: $cursor;
-    }
+  svg {
+    height: 35px;
+    width: 35px;
+    margin: 15px 0 0 20px;
   }
 
-  .nav-search {
-    width: 70%;
+  svg:hover {
+    cursor: $cursor;
+  }
+  
+  input {
+    border-radius: $border-radius;
+    border: none;
+    width: 160px;
+    padding: 10px 35px 10px 15px;
+    margin: 14px 25px 0 0;
     float: right;
-
-    input {
-      border-radius: $border-radius;
-      border: none;
-      padding: 8px 20px;
-      margin: 15px 35px 0 0;
-      float: right;
-      font-family: $font;
-    }
+    font-family: $font;
+    font-size: 14px;
   }
 }

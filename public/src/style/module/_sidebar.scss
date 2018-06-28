@@ -1,8 +1,8 @@
 .sidebar {
   background-color: $secondary-color;
-  box-shadow: $blur-horizontal;
+  box-shadow: $blur-vertical;
   width: $left-margin;
-  top: nav-height;
+  top: $nav-height;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -13,11 +13,11 @@
     font-family: $font;
     font-weight: bold;
     background-color: #FFF;
-    border: 1px $primary-color solid;
-    margin: 25px 0 20px 18px;
-    padding: 8px 25px;
-    font-size: 13px;
-    transition: .4s
+    border: 1px #999 solid;
+    margin: 50px 0 13px 15px;
+    padding: 10px 30px;
+    font-size: 16px;
+    transition: .4s;
   }
 
   button:hover {
@@ -26,9 +26,10 @@
   }
 
   li {
-    margin: 10px 0 0 20px;
+    margin: 16px 0 0 18px;
     cursor: $cursor;
     color: $primary-color;
+    font-size: 18px;
   }
 
   li:hover, link:active {

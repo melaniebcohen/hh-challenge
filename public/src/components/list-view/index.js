@@ -100,18 +100,14 @@ class ListView extends Component {
 
     return (
       <section className='list-view'>
-        <div className='col-1'></div>
-        <div className='col-2'>
-          {currentColors
-            ? currentColors.map(color => {
-              return <ListItem 
-                key={color._id} 
-                color={color} />;
-            })
-            : null
-          }
-        </div>
-        <div className='col-3'></div>
+        {currentColors
+          ? currentColors.map(color => {
+            return <ListItem 
+              key={color._id} 
+              color={color} />;
+          })
+          : null
+        }
 
         <ul className='page-list'>
           {pageNumbers.length > 1

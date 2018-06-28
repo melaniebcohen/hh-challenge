@@ -1,21 +1,16 @@
 .list-view {
   position: relative;
-  margin: $top-margin 0 0 $left-margin;
-
-  .col-1, .col-3 {
-    display: inline-block;
-    width: 5%;
-  }
-
-  .col-2 {
-    text-align: center;
-    display: inline-block;
-    width: 90%;
-  }
+  margin: 102px 20px 0 210px;
+  display: flex;
+  width: 700px;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
 
   .page-list {
     margin-top: 2%;
-    text-align: center;
+    // text-align: center;
 
     li {
       display: inline-block;
@@ -29,13 +24,13 @@
     }
   }
   
-  @media only screen and (min-width: 1050px) {
-    .col-1, .col-3 {
-      width: 10%;
-    }
+  // @media only screen and (min-width: 1050px) {
+  //   .col-1, .col-3 {
+  //     width: 10%;
+  //   }
   
-    .col-2 {
-      width: 80%;
-    }
-  }
+  //   .col-2 {
+  //     width: 80%;
+  //   }
+  // }
 }
