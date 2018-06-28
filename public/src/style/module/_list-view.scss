@@ -7,7 +7,17 @@
   align-items: flex-start;
   flex-wrap: wrap;
 
-  .page-list {
+  .page-list-container {
+    clear: both;
+    display: block;
+    width: 100%;
+
+    .page-list {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+    }
+
     li {
       display: inline-block;
       margin: 45px 10px 20px 10px;

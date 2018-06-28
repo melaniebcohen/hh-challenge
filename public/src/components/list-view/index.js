@@ -90,6 +90,7 @@ class ListView extends Component {
   }
 
   render() {
+    console.log(this.state)
     const { currentColors, totalColorCount } = this.state;
     const pageNumbers = [];
     const pages = Math.ceil(totalColorCount/12);
@@ -108,17 +109,18 @@ class ListView extends Component {
           })
           : null
         }
-
-        <ul className='page-list'>
-          {pageNumbers.length > 1
-            ? pageNumbers.map(num => {
-              return <li 
-                key={num}
-                value={num}
-                onClick={this.handleClick}>{num}</li>;
-            })
-            : null}
-        </ul>
+        <div className='page-list-container'>
+          <ul className='page-list'>
+            {pageNumbers.length > 1
+              ? pageNumbers.map(num => {
+                return <li 
+                  key={num}
+                  value={num}
+                  onClick={this.handleClick}>{num}</li>;
+              })
+              : null}
+          </ul>
+        </div>
       </section>
     );
   }
