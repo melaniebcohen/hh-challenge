@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { BrowserHistory } from 'react-router-dom';
 import { allColorsFetchRequest, colorFamilyFetchRequest } from '../../actions/color-actions.js';
 
 import ListItem from '../list-item';
@@ -90,8 +89,7 @@ class ListView extends Component {
   }
 
   render() {
-    console.log(this.state)
-    const { currentColors, totalColorCount } = this.state;
+    const { currentColors, totalColorCount, page } = this.state;
     const pageNumbers = [];
     const pages = Math.ceil(totalColorCount/12);
     
@@ -114,6 +112,7 @@ class ListView extends Component {
             {pageNumbers.length > 1
               ? pageNumbers.map(num => {
                 return <li 
+                  id={page === num ? 'active' : 'inactive'}
                   key={num}
                   value={num}
                   onClick={this.handleClick}>{num}</li>;
