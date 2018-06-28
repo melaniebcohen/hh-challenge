@@ -20,12 +20,10 @@ class SideBar extends Component {
   }
   
   handleClick(color) {
-    if (color) {
-      return this.props.history.push({
-        pathname: `/`,
-        state: color,
-      });
-    } 
+    return this.props.history.push({
+      pathname: `/`,
+      state: color,
+    });
   }
 
   render() {

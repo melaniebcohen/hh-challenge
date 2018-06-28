@@ -4,7 +4,7 @@
   box-shadow: $blur;
   width: 130px;
   height: 160px;
-  margin: 10px 15px;
+  margin: 12px 15px;
   
   .list-item-color {
     height: 125px;
@@ -12,8 +12,9 @@
   }
 
   p {
-    font-size: 12px;
-    margin: 3px 0 0 4px;
+    font-size: 14px;
+    margin: 11px 0 0 10px;
+    color: $primary-color;
   }
 }
 
@@ -21,7 +22,3 @@
   cursor: $cursor;
   box-shadow: 2px 2px 3px rgba(0,0,0, .2);
 }
-
-.list-item:nth-child(3n) {
-  break-after: always;
-};

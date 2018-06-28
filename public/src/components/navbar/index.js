@@ -7,9 +7,11 @@ export default class NavBar extends Component {
 
     return (
       <nav className='nav'>
-        <div className='nav-icon' dangerouslySetInnerHTML={innerHTML}></div>
-        <div className='nav-search'>
-          <input placeholder='Search'></input>
+        <div className='nav-container'>
+          <div className='nav-icon' dangerouslySetInnerHTML={innerHTML}></div>
+          <div className='nav-search'>
+            <input placeholder='Search'></input>
+          </div>
         </div>
       </nav>
     );

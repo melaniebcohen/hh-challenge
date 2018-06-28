@@ -12,7 +12,6 @@ export default class DetailItem extends Component {
             className='list-item-color'
             style={{ backgroundColor: hexCode }}>
           </div>
-          <p>{color.colorName}</p>
           <p>{hexCode}</p>
         </div>
       </section>

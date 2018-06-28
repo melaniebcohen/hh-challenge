@@ -1,30 +1,18 @@
 .detail-item {
-  position: relative;
-  margin: 25px 0 10px 0;
-
   .list-item {
     width: 100%;
-    height: 100%;
+    height: 445px;
     text-align: left;
-    margin: 0;
+    cursor: auto;
+    box-shadow: none;
   }
 
   .list-item-color {
-    height: 40vh;
+    height: 350px;
   }
 
   p {
-    font-size: 20px;
-    margin: 15px 5% 5px 5%;
-  }
-
-  p:last-child {
-    margin: 0 0 12px 5%;
-  }
-
-  @media only screen and (min-width: 900px) {
-    .list-item {
-      width: 90%;
-    }
+    font-size: 25px;
+    margin: 35px 0 5px 5%;
   }
 }

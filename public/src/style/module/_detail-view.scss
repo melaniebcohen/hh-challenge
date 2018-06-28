@@ -1,35 +1,27 @@
 .detail-view {
-  margin: $top-margin 0 0 $left-margin;
-  position: relative;
-  text-align: center;
-  height: 70vh;
+  margin: 100px 20px 0 210px;
+  width: 645px;
 
-  .col-1, .col-3 {
-    display: inline-block;
-    width: 4%;
+  .detail-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
   }
 
-  .col-2 {
-    text-align: center;
-    display: inline-block;
-    width: 90%;
-  }
-
-  .detail-item {
-    .list-item {
-      cursor: auto;
-      box-shadow: none;
-    }
+  .detail-list-container {
+    display: inline-flex;
+    margin-left: 15px;
+    width: 100%;
+    justify-content: space-between;
   }
 
   button {
-    display: block;
     border-radius: $border-radius;
     font-family: $font;
     font-weight: bold;
     background-color: #FFF;
-    border: 1px $primary-color solid;
-    margin: 10px auto 20px auto;
+    border: 1px rgb(121, 121, 121) solid;
+    margin: 25px auto 20px auto;
     padding: 10px 55px;
     font-size: 15px;
     transition: .4s

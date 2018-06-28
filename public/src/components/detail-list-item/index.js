@@ -28,8 +28,7 @@ export default class DetailListItem extends Component {
           id={id}
           style={{ backgroundColor: hexCode }}>
         </div>
-        <p>{color.colorName}</p>
-        <p>{hexOpacity}</p>
+        <p>{hexCode}</p>
       </div>
     );
   }

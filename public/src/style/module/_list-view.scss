@@ -1,20 +1,16 @@
 .list-view {
-  position: relative;
   margin: 102px 20px 0 210px;
+  width: 690px;
   display: flex;
-  width: 700px;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap;
 
   .page-list {
-    margin-top: 2%;
-    // text-align: center;
-
     li {
       display: inline-block;
-      margin: 10px 10px 20px 10px;
+      margin: 45px 10px 20px 10px;
       cursor: $cursor;
     }
 
