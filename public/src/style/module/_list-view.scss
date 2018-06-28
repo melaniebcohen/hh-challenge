@@ -8,9 +8,7 @@
   flex-wrap: wrap;
 
   .page-list-container {
-    clear: both;
-    display: block;
-    width: 100%;
+    width: 650px;
 
     .page-list {
       display: flex;
@@ -24,8 +22,9 @@
     }
 
     li {
+      font-size: 15px;
       display: inline-block;
-      margin: 45px 6px 20px 6px;
+      margin: 45px 4px 20px 4px;
       padding: 0 4px 0 4px; 
       cursor: $cursor;
     }
