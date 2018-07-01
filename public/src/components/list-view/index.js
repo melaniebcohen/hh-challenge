@@ -28,7 +28,7 @@ class ListView extends Component {
   componentDidUpdate() {
     if (this.fetchingColors) {
       this.fetchingColors = false;
-  
+
       this.setState({
         currentColors: this.props.colors,
         totalColorCount: this.props.total,
@@ -42,12 +42,12 @@ class ListView extends Component {
       return this.props.colorFamilyFetch(nextProps.location.state, 1)
         .then(res => {
           this.setState({
-            currentColors: res.body.colors,
-            totalColorCount: res.body.total,
+            currentColors: this.props.colors,
+            totalColorCount: this.props.total,
             familyView: true,
           });
         })
-        .then(() => this.props.history.location.state === '');
+        .then(() => this.props.history.location.state === nextProps.location.state);
     }
   }
 
@@ -60,8 +60,7 @@ class ListView extends Component {
     } else if (colors === 'family') {
       return this.props.colorFamilyFetch(this.props.location.state, this.state.page)
         .then(() => {
-          this.fetchColors = false;
-          return this.props.history.push({ state: '' });
+          return this.props.history.push({ state: this.props.location.state });
         });
     }
   }
