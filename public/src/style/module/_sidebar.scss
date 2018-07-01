@@ -14,9 +14,10 @@
     font-weight: bold;
     background-color: #FFF;
     border: 1px #999 solid;
-    margin: 50px 0 13px 15px;
-    padding: 10px 30px;
-    font-size: 16px;
+    color: rgb(56, 56, 56);
+    margin: 45px 0 13px 20px;
+    padding: 8px 30px;
+    font-size: 14px;
     transition: .4s;
   }
 
@@ -26,10 +27,11 @@
   }
 
   li {
-    margin: 16px 0 0 18px;
+    margin: 15px 0 0 18px;
     cursor: $cursor;
-    color: $primary-color;
-    font-size: 18px;
+    color: rgb(68, 68, 68);
+    font-size: 16px;
+    font-weight: lighter;
   }
 
   li:hover, link:active {

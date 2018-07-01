@@ -1,14 +1,14 @@
 .list-view {
-  margin: 102px 20px 0 210px;
-  width: 690px;
+  margin: 97px 0 0 $left-margin+5;
+  width: 657px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: space-around;
+  align-items: center;
   flex-wrap: wrap;
 
   .page-list-container {
-    width: 650px;
+    width: 625px;
 
     .page-list {
       display: flex;
@@ -22,25 +22,16 @@
     }
 
     li {
-      font-size: 15px;
+      font-size: 14px;
       display: inline-block;
-      margin: 45px 4px 20px 4px;
+      margin: 40px 3px 0 3px;
       padding: 0 4px 0 4px; 
       cursor: $cursor;
+      color: rgb(90, 90, 90);
     }
 
     li:hover {
       font-weight: bold;
     }
   }
-  
-  // @media only screen and (min-width: 1050px) {
-  //   .col-1, .col-3 {
-  //     width: 10%;
-  //   }
-  
-  //   .col-2 {
-  //     width: 80%;
-  //   }
-  // }
 }
