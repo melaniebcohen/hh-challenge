@@ -36,18 +36,16 @@ class DetailView extends Component {
   render() {
     return (
       <section className='detail-view'>
-        <div className='col-1'></div>
-
         {this.props.color
-          ? <div className='col-2'>
+          ? <div className='detail-container'>
             <DetailItem color={this.props.color} />
-            {this.createList()}
+            <section className='detail-list-container'>
+              {this.createList()}
+            </section>
             <button onClick={() => this.props.history.push('/')}>Clear</button>
           </div>
           : null
         }
-
-        <div className='col-3'></div>
       </section>
     );
   }

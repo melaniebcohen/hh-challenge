@@ -1,30 +1,21 @@
 .detail-item {
-  position: relative;
-  margin: 25px 0 10px 0;
-
   .list-item {
+    border: .5px solid rgb(119, 119, 119);
     width: 100%;
-    height: 100%;
+    height: 400px;
     text-align: left;
-    margin: 0;
+    cursor: auto;
+    box-shadow: none;
   }
 
   .list-item-color {
-    height: 40vh;
+    height: 320px;
+    z-index: -99;
+    width: 99.9%;
   }
 
   p {
-    font-size: 20px;
-    margin: 15px 5% 5px 5%;
-  }
-
-  p:last-child {
-    margin: 0 0 12px 5%;
-  }
-
-  @media only screen and (min-width: 900px) {
-    .list-item {
-      width: 90%;
-    }
+    font-size: 25px;
+    margin: 30px 0 5px 5%;
   }
 }

@@ -11,7 +11,6 @@ class ListItem extends Component {
         className='list-item'
         onClick={() => history.push(`/detail/${color.hexCode}`)}>
         <div className='list-item-color' style={{ backgroundColor: hexCode }}></div>
-        <p>{color.colorName}</p>
         <p>{hexCode}</p>
       </div>
     );

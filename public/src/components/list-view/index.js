@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { BrowserHistory } from 'react-router-dom';
 import { allColorsFetchRequest, colorFamilyFetchRequest } from '../../actions/color-actions.js';
 
 import ListItem from '../list-item';
@@ -60,7 +59,10 @@ class ListView extends Component {
       return this.props.allColorsFetch(this.state.page);
     } else if (colors === 'family') {
       return this.props.colorFamilyFetch(this.props.location.state, this.state.page)
-        .then(() => this.props.history.push({ state: '' }));
+        .then(() => {
+          this.fetchColors = false;
+          return this.props.history.push({ state: '' });
+        });
     }
   }
 
@@ -90,7 +92,7 @@ class ListView extends Component {
   }
 
   render() {
-    const { currentColors, totalColorCount } = this.state;
+    const { currentColors, totalColorCount, page } = this.state;
     const pageNumbers = [];
     const pages = Math.ceil(totalColorCount/12);
     
@@ -100,29 +102,27 @@ class ListView extends Component {
 
     return (
       <section className='list-view'>
-        <div className='col-1'></div>
-        <div className='col-2'>
-          {currentColors
-            ? currentColors.map(color => {
-              return <ListItem 
-                key={color._id} 
-                color={color} />;
-            })
-            : null
-          }
+        {currentColors
+          ? currentColors.map(color => {
+            return <ListItem 
+              key={color._id} 
+              color={color} />;
+          })
+          : null
+        }
+        <div className='page-list-container'>
+          <ul className='page-list'>
+            {pageNumbers.length > 1
+              ? pageNumbers.map(num => {
+                return <li 
+                  id={page === num ? 'active' : 'inactive'}
+                  key={num}
+                  value={num}
+                  onClick={this.handleClick}>{num}</li>;
+              })
+              : null}
+          </ul>
         </div>
-        <div className='col-3'></div>
-
-        <ul className='page-list'>
-          {pageNumbers.length > 1
-            ? pageNumbers.map(num => {
-              return <li 
-                key={num}
-                value={num}
-                onClick={this.handleClick}>{num}</li>;
-            })
-            : null}
-        </ul>
       </section>
     );
   }

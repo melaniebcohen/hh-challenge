@@ -20,17 +20,10 @@ class SideBar extends Component {
   }
   
   handleClick(color) {
-    if (color) {
-      return this.props.history.push({
-        pathname: `/`,
-        state: color,
-      });
-    } else {
-      return this.props.history.push({
-        pathname: `/`,
-        state: '',
-      });
-    }
+    return this.props.history.push({
+      pathname: `/`,
+      state: color,
+    });
   }
 
   render() {
@@ -38,8 +31,6 @@ class SideBar extends Component {
       <section className='sidebar'>
         <button onClick={this.buttonSelect}>Random Color</button>
         <ul>
-          <li onClick={() => this.handleClick()}>All Colors</li>
-
           {this.state.colorList.map((color) => {
             return <li 
               value={color}

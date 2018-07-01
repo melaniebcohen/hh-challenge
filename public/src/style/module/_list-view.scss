@@ -1,41 +1,37 @@
 .list-view {
-  position: relative;
-  margin: $top-margin 0 0 $left-margin;
+  margin: 97px 0 0 $left-margin+5;
+  width: 657px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
 
-  .col-1, .col-3 {
-    display: inline-block;
-    width: 5%;
-  }
+  .page-list-container {
+    width: 625px;
 
-  .col-2 {
-    text-align: center;
-    display: inline-block;
-    width: 90%;
-  }
+    .page-list {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+    }
 
-  .page-list {
-    margin-top: 2%;
-    text-align: center;
+    #active {
+      border-bottom: 1px solid #000;
+      font-weight: bold;
+    }
 
     li {
+      font-size: 14px;
       display: inline-block;
-      margin: 10px 10px 20px 10px;
+      margin: 40px 3px 0 3px;
+      padding: 0 4px 0 4px; 
       cursor: $cursor;
+      color: rgb(90, 90, 90);
     }
 
     li:hover {
       font-weight: bold;
-      text-decoration: underline;
-    }
-  }
-  
-  @media only screen and (min-width: 1050px) {
-    .col-1, .col-3 {
-      width: 10%;
-    }
-  
-    .col-2 {
-      width: 80%;
     }
   }
 }
