@@ -59,7 +59,10 @@ class ListView extends Component {
       return this.props.allColorsFetch(this.state.page);
     } else if (colors === 'family') {
       return this.props.colorFamilyFetch(this.props.location.state, this.state.page)
-        .then(() => this.props.history.push({ state: '' }));
+        .then(() => {
+          this.fetchColors = false;
+          return this.props.history.push({ state: '' });
+        });
     }
   }
 
